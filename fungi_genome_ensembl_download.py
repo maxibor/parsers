@@ -2,13 +2,14 @@
 
 import subprocess
 
-release = str("31")
-genomes_dir = "/home/maxime/genomes/fungi/"
-fasta_file_root_directory = "ftp://ftp.ensemblgenomes.org/pub/fungi/release-31/fasta/"
-# fasta_file_root_directory+specie_dir+"dna"+specie_name+strqin_info+".toplevel.fa.gz"
-# fasta_file_root_directory+phylum_dir+specie_name+"dna"+specie_name+strqin_info+".toplevel.fa.gz"
 
-with open(genomes_dir+"species_EnsemblFungi.txt","r") as species_list_file :
+release = str("31")
+genomes_dir = "path/to/directory" #path to directory that must already exist
+ensembl_species_file = "species_EnsemblFungi.txt" #ensembl_species_file describing all availables genomes, in genomes_dir
+fasta_file_root_directory = "ftp://ftp.ensemblgenomes.org/pub/fungi/release-31/fasta/" #path to ensemblgenomes fungi
+
+
+with open(genomes_dir+ensembl_species_file,"r") as species_list_file :
     next(species_list_file)
     for line in species_list_file :
         line = line.rstrip()
